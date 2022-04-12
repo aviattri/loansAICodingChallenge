@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button } from "@mui/material";
 import CustomTable from "../components/CustomTable";
+import { connect } from "react-redux";
+import { setUniData } from "../store/Actions";
 
-const Details = () => {
-  const [data, setData] = useState([]);
-
+const Details = ({ setUniData }) => {
   const onLoad = () => {
     axios
-      .get(`http://universities.hipolabs.com/search?country=India`)
+      .get(`http://universities.hipolabs.com/search?country=Australia`)
       .then((res) => {
         const uni = res.data;
-        setData(uni);
+        setUniData(uni);
       });
   };
 
@@ -26,8 +26,22 @@ const Details = () => {
       <Button variant="text" onClick={() => onLoad()}>
         Add
       </Button>
-      <CustomTable data={data} />
+      <CustomTable />
     </>
   );
 };
-export default Details;
+
+function mapStateToProps(state) {
+  return {
+    data: state.Reducer.data,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    setUniData: (data) => {
+      return dispatch(setUniData(data));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

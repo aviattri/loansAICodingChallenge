@@ -6,9 +6,16 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { connect } from "react-redux";
+import { setUniData, removeUni } from "../store/Actions";
 
 const CustomTable = ({ data }) => {
   console.log(data);
+
+  if (!data) {
+    return <div>No Data</div>;
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -24,9 +31,10 @@ const CustomTable = ({ data }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((item, index) => (
+          {data?.map((item, index) => (
             <TableRow
               key={index}
+              onP
               sx={{ "&:last-child td, &:last-child th": { border: 1 } }}
             >
               <TableCell component="th" scope="row">
@@ -58,4 +66,22 @@ const CustomTable = ({ data }) => {
   );
 };
 
-export default CustomTable;
+function mapStateToProps(state) {
+  // console.log(state);
+  return {
+    data: state.Reducer.data,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setUniData: (data) => {
+      return dispatch(setUniData(data));
+    },
+    removeUni: (data) => {
+      return dispatch(removeUni(data));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomTable);
