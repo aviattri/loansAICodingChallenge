@@ -7,11 +7,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { connect } from "react-redux";
-import { setUniData, removeUni, addUni } from "../store/Actions";
+import { addUni } from "../store/Actions";
 
 const CustomTable = ({ data }) => {
-  // console.log(data);
-
   if (!data) {
     return <div>No Data</div>;
   }
@@ -67,24 +65,9 @@ const CustomTable = ({ data }) => {
 };
 
 function mapStateToProps(state) {
-  // console.log(state);
   return {
     data: state.Reducer.data,
   };
 }
-
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     setUniData: (data) => {
-//       return dispatch(setUniData(data));
-//     },
-//     removeUni: (data) => {
-//       return dispatch(removeUni(data));
-//     },
-//     addUni: (data) => {
-//       return dispatch(addUni(data));
-//     },
-//   };
-// }
 
 export default connect(mapStateToProps)(CustomTable);
