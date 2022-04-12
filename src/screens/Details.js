@@ -3,9 +3,9 @@ import axios from "axios";
 import { Button } from "@mui/material";
 import CustomTable from "../components/CustomTable";
 import { connect } from "react-redux";
-import { setUniData } from "../store/Actions";
+import { setUniData, removeUni, addUni } from "../store/Actions";
 
-const Details = ({ setUniData }) => {
+const Details = ({ setUniData, data, removeUni, addUni }) => {
   const onLoad = () => {
     axios
       .get(`http://universities.hipolabs.com/search?country=Australia`)
@@ -20,10 +20,10 @@ const Details = ({ setUniData }) => {
       <Button variant="text" onClick={() => onLoad()}>
         Load
       </Button>
-      <Button variant="text" onClick={() => onLoad()}>
+      <Button variant="text" onClick={() => removeUni()}>
         Delete
       </Button>
-      <Button variant="text" onClick={() => onLoad()}>
+      <Button variant="text" onClick={() => addUni()}>
         Add
       </Button>
       <CustomTable />
@@ -37,10 +37,17 @@ function mapStateToProps(state) {
     data: state.Reducer.data,
   };
 }
+
 function mapDispatchToProps(dispatch) {
   return {
     setUniData: (data) => {
       return dispatch(setUniData(data));
+    },
+    removeUni: () => {
+      return dispatch(removeUni());
+    },
+    addUni: () => {
+      return dispatch(addUni());
     },
   };
 }

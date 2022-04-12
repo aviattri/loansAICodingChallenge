@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import { connect } from "react-redux";
 import { setUniData, removeUni, addUni } from "../store/Actions";
 
-const CustomTable = ({ data, removeUni, addUni }) => {
+const CustomTable = ({ data }) => {
   // console.log(data);
 
   if (!data) {
@@ -73,18 +73,18 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    setUniData: (data) => {
-      return dispatch(setUniData(data));
-    },
-    removeUni: (data) => {
-      return dispatch(removeUni(data));
-    },
-    addUni: (data) => {
-      return dispatch(addUni(data));
-    },
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     setUniData: (data) => {
+//       return dispatch(setUniData(data));
+//     },
+//     removeUni: (data) => {
+//       return dispatch(removeUni(data));
+//     },
+//     addUni: (data) => {
+//       return dispatch(addUni(data));
+//     },
+//   };
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomTable);
+export default connect(mapStateToProps)(CustomTable);

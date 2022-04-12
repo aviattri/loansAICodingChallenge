@@ -13,17 +13,15 @@ const reducer = (state = intialState, action) => {
       };
     }
     case ActionTypes.REMOVE_UNI: {
-      console.log(state);
-      const name = action.payload;
       return {
         ...state,
-        data: state.data.filter((item) => item.name !== name),
+        data: state.data.filter((_, i) => i !== state.data.length - 1),
       };
     }
     case ActionTypes.ADD_UNI: {
       return {
         ...state,
-        data: state.data.concat(action.payload.uni),
+        data: state.data.concat(state.data[0]),
       };
     }
     default:

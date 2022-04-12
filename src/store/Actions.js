@@ -7,24 +7,22 @@ export const setUniDataSuccess = (data) => ({
   payload: { data },
 });
 
-export const removeUniSucess = (name) => ({
+export const removeUniSucess = () => ({
   type: REMOVE_UNI,
-  payload: name,
 });
 
-export const addUniSuccess = (uni) => ({
+export const addUniSuccess = () => ({
   type: ADD_UNI,
-  payload: { uni },
 });
 
 export function setUniData(data) {
   return (dispatch) => dispatch(setUniDataSuccess(data));
 }
 
-export function removeUni(name) {
-  return (dispatch) => dispatch(removeUniSucess(name));
+export function removeUni() {
+  return (dispatch) => dispatch(removeUniSucess());
 }
 
-export function addUni(uni) {
-  return (dispatch) => dispatch(addUniSuccess(uni));
+export function addUni() {
+  return (dispatch) => dispatch(addUniSuccess());
 }
