@@ -32,6 +32,7 @@ const Details = ({ setUniData }) => {
 };
 
 function mapStateToProps(state) {
+  // console.log(state);
   return {
     data: state.Reducer.data,
   };

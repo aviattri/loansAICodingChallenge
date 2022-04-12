@@ -7,10 +7,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { connect } from "react-redux";
-import { setUniData, removeUni } from "../store/Actions";
+import { setUniData, removeUni, addUni } from "../store/Actions";
 
-const CustomTable = ({ data }) => {
-  console.log(data);
+const CustomTable = ({ data, removeUni, addUni }) => {
+  // console.log(data);
 
   if (!data) {
     return <div>No Data</div>;
@@ -34,7 +34,7 @@ const CustomTable = ({ data }) => {
           {data?.map((item, index) => (
             <TableRow
               key={index}
-              onP
+              onClick={() => addUni(item)}
               sx={{ "&:last-child td, &:last-child th": { border: 1 } }}
             >
               <TableCell component="th" scope="row">
@@ -80,6 +80,9 @@ function mapDispatchToProps(dispatch) {
     },
     removeUni: (data) => {
       return dispatch(removeUni(data));
+    },
+    addUni: (data) => {
+      return dispatch(addUni(data));
     },
   };
 }
