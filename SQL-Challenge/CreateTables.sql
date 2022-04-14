@@ -38,3 +38,21 @@ values
     (3, 'Aaron' ),
     (4, 'Luke' )
 ;
+
+
+-- SQL QUERY 
+select broker.name, COUNT(1) as COUNT
+FROM BROKER
+    inner join CUSTOMER 
+where customer.broker_id = broker.broker_id
+group by broker.broker_id
+order by COUNT DESC, broker.name;
+
+--+---- RESULT ---+-------+
+-- | name  | COUNT |
+-- +-------+-------+
+-- | Luke  |     3 |
+-- | Mark  |     3 |
+-- | Aaron |     2 |
+-- | Ted   |     2 |
+-- +-------+-------+
