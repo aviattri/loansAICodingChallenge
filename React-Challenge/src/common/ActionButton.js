@@ -1,10 +1,10 @@
 import * as React from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import SaveIcon from "@mui/icons-material/Save";
-import Stack from "@mui/material/Stack";
 
-const LoadingButtons = ({
+const ActionButton = ({
   loading,
+  disabled,
   loadingLabel,
   label,
   onPress,
@@ -13,6 +13,7 @@ const LoadingButtons = ({
 }) => {
   return (
     <LoadingButton
+      disabled={disabled}
       loading={loading}
       onClick={onPress}
       variant={variant ?? null}
@@ -22,4 +23,4 @@ const LoadingButtons = ({
     </LoadingButton>
   );
 };
-export default LoadingButtons;
+export default ActionButton;

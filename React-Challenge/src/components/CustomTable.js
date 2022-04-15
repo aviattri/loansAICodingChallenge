@@ -16,7 +16,7 @@ const CustomTable = ({ data }) => {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ marginTop: 2, minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>S.No</TableCell>
