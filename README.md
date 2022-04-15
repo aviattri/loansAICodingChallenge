@@ -1,11 +1,11 @@
 # loansAICodingChallenge
 
 # React-Challenge 
-step 1 - cd into react-challenge and run npm install or yarn install if you are using yarn
-step 2 - run npm start
-step 3 - click on fetch Uni button to fetch a list of australian unis
-step 4 - click on remove Uni button to remove the last uni from the table
-step 5 - click on add Uni button to add the first uni to the last index of the table
+-step 1 - cd into react-challenge and run npm install or yarn install if you are using yarn
+-step 2 - run npm start
+-step 3 - click on fetch Uni button to fetch a list of australian unis
+-step 4 - click on remove Uni button to remove the last uni from the table
+-step 5 - click on add Uni button to add the first uni to the last index of the table
 **
 Extra 
 Step 6 - You can dynamically search for a country to display it's list of unis
